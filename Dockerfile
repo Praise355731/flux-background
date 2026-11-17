@@ -1,0 +1,8 @@
+FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime
+WORKDIR /app
+ENV HF_HOME=/runpod-volume/hf
+RUN apt-get update && apt-get install -y --no-install-recommends git && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY common_r2.py handler.py ./
+CMD ["python", "-u", "handler.py"]
