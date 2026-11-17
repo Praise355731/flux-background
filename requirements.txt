@@ -1,0 +1,9 @@
+runpod
+torch
+diffusers>=0.30.0
+transformers
+accelerate
+sentencepiece
+protobuf
+boto3
+pillow
